@@ -63,7 +63,7 @@ public class TocGenerator {
 
     List<Info> fileInfo = getFileInfo(path);
     Scanner tempLateScanner = new Scanner(new File(TEMPLATE_NAME));
-    generateHtmlForm(fileInfo, tempLateScanner);
+    generateReadmeDotMd(fileInfo, tempLateScanner);
   }
 
   private static List<Info> getFileInfo(String path) throws FileNotFoundException {
@@ -107,10 +107,11 @@ public class TocGenerator {
         }
       }
       fileInfo.add(new Info(file.split("\\.")[0], title, link, dir.getName(), difficulty));
+      scanner.close();
     }
   }
 
-  private static void generateHtmlForm(List<Info> fileInfo, Scanner templateScanner) throws IOException {
+  private static void generateReadmeDotMd(List<Info> fileInfo, Scanner templateScanner) throws IOException {
     String outName;
     if (isWindows) {
       outName = WIN_OUT_NAME;
@@ -126,6 +127,7 @@ public class TocGenerator {
       while (templateScanner.hasNextLine()) {
         writer.write(templateScanner.nextLine() + "\n");
       }
+      templateScanner.close();
       generateStatistic(writer, fileInfo);
 
       generateHeader(writer);
