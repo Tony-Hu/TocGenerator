@@ -49,6 +49,7 @@ public class TocGenerator {
     labelMap.put("array", "Array");
     labelMap.put("mathematics", "Mathematics");
     labelMap.put("dp", "Dynamic Programming");
+    labelMap.put("stack", "Stack");
   }
 
   public static void main(String[] args) throws IOException {
