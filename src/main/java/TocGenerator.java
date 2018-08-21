@@ -43,6 +43,7 @@ public class TocGenerator {
 
   static {
     labelMap.put("string", "String");
+    labelMap.put("binarySearch", "Binary Search");
     labelMap.put("unionFind", "Union Find");
     labelMap.put("bfs", "BFS");
     labelMap.put("bitOperation", "Bit Operation");
